@@ -1,0 +1,46 @@
+<!-- 头部tab栏 -->
+<tab tabindex="0"></tab>
+<view class="my_container" hidden="{{!loginstatus}}">
+  <!-- 轮播图 -->
+  <view>
+    <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" class="v_swpier" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{swiperList}}" wx:key="idx" >
+      <swiper-item class="v_swpier_item" >
+        <navigator>
+          <image src="{{item.imageUrl}}" mode="widthFix" />
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
+  <!-- 乐库导航 -->
+  <view class="v_nav">
+    <view wx:for="{{musicNav}}" wx:key="idx" class="v_nav_item">
+      <view class="iconfont {{item.icon}} v_nav_icon"></view>
+      <text class="v_nav_text">{{item.title}}</text>
+    </view>
+  </view>
+  <!-- 推荐歌单 -->
+  <view class="music_list">
+  <text class="list_title1">推荐歌单</text>
+  <view class="list_title2">
+    <text>为你精挑细选</text>
+    <button class="list_more">查看更多</button>
+  </view>
+  <scroll-view scroll-x>
+    <block wx:for="{{personalizedList}}" wx:key="idx">
+    <image src="{{personalizedList.picUrl}}">
+    </image>
+    <text>
+    </text>
+    </block>
+  </scroll-view>
+  </view>
+</view>
+<view class="login_container" hidden="{{loginstatus}}">
+  <form bindsubmit="submitLoginForm">
+    <input placeholder="请输入手机号" name="phone" value="" type="text" class="login_common login_username {{input1color?'login_color':''}}" focus="true" bindtap="changeColor1"></input>
+    <input placeholder="请输入密码" name="password" value="" type="password" class="login_common login_password {{input2color?'login_color':''}}" bindtap="changeColor2"></input>
+    <button class="login_button login_common" form-type="submit">登录</button>
+  </form>
+</view>

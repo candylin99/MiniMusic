@@ -1,0 +1,38 @@
+<!--pages/video/video.wxml-->
+<tab tabindex="0"></tab>
+<!-- 轮播图 -->
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" indicator-color="{{indicatorcolor}}" class="v_swpier" indicator-active-color="{{indicatoractivecolor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+  <block wx:for="{{swiperList}}" wx:key="idx" >
+    <swiper-item class="v_swpier_item" >
+      <navigator>
+        <image src="{{item.imageUrl}}" mode="widthFix" />
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+<!-- 乐库导航 -->
+<view class="v_nav">
+  <view wx:for="{{musicNav}}" wx:key="idx" class="v_nav_item">
+    <view class="iconfont {{item.icon}} v_nav_icon"></view>
+    <text class="v_nav_text">{{item.title}}</text>
+  </view>text'
+</view>
+<!-- 推荐歌单 -->
+<view class="music_list">
+<text class="list_title1">推荐歌单</text>
+<view class="list_title2">
+  <text>为你精挑细选</text>
+  <button class="list_more">查看更多</button>
+</view>
+<scroll-view scroll-x>
+  <block wx:for="{{personalizedList}}" wx:key="idx">
+  <image src="{{personalizedList.picUrl}}">
+
+  </image>
+  <text>
+  </text>
+  </block>
+</scroll-view>
+</view>

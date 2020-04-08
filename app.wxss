@@ -1,0 +1,35 @@
+/**app.wxss**/
+/* 简单的初始化配置 */
+/* 主题色 */
+.theme_bg{
+  background-color: #303639;
+}
+.theme_text{
+  color: #303639;
+}
+@import 'stylus/icon.wxss';
+page {
+  background-color: #F6F7FB;
+  box-sizing: border-box;
+  font-family:PingFang SC,Monospaced Number,Chinese Quote,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif!important;
+  }
+  .notice-wrap{
+    height: 11rpx;
+  }
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+  /* 不知道为什么页面会飞 */
+/* page,view,swiper,swiper-item,navigator,video,image{
+  box-sizing: border-box;
+} */
+view{
+
+}

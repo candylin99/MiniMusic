@@ -1,0 +1,33 @@
+
+.bank{
+  height: 110rpx;
+}
+
+.tabBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 95rpx;
+  background-color: #F6F7FB;
+  z-index: 1;
+  display: flex;
+}
+
+.tabBar-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-size: 36rpx;
+  padding: 0rpx 30rpx;
+}
+
+/*当前字体颜色*/
+.tab_text {
+  color: #303639;
+  font-weight: 700;
+  border-bottom: 6rpx solid #303639;
+  font-size: 40rpx;
+  padding: 15rpx 0;
+}

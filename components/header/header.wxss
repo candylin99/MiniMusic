@@ -1,0 +1,60 @@
+.custom{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 45px;
+  background: #fff;
+  z-index: 999;
+}
+.custom.nobg{
+  background: none;
+}
+.custom .titleText{
+  position: absolute;
+  left:0rpx;
+  letter-spacing: 2rpx;
+  bottom:30rpx;
+  width: 100%;
+  text-align: center;
+  color: #121212;
+  font-size: 34rpx;
+  font-weight: bold;
+  z-index: 1;
+}
+.custom.nobg .titleText{
+  color:#eee;
+}
+
+.custom.nobg .titleTextleft{
+  color:#eee;
+}
+.goto{
+  position: absolute;
+  bottom: 0rpx;
+  padding:30rpx 40rpx;
+  z-index: 4;
+
+}
+.custom .titleTextleft{
+  position: absolute;
+  left:0rpx;
+  bottom:30rpx;
+  width: 100%;
+  text-indent: 40rpx;
+  /* color: #121212; */
+  color: #C62F2F;
+  font-size: 34rpx;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  z-index: 1;
+}
+
+.gobackimg{
+  width:18rpx;
+  height:30rpx;
+}
+.empty_custom{
+  height: 45px;
+  width: 100%;
+}

@@ -1,0 +1,10 @@
+<view class="bank" style="padding-top:{{statusBarHeight}}px;"></view>
+<view class="tabBar" style="padding-top:{{statusBarHeight}}px;">
+  <block wx:for="{{tabBar}}" wx:for-item="item" wx:key="tabBar" wx:for-index="idx">
+    <view class="tabBar-item">
+      <view bindtap="tabBarClick" data-url="{{item.pagePath}}" data-index="{{idx}}">
+        <view class="{{tabindex == idx ? 'tab_text' :''}}">{{item.text}}</view>
+      </view>
+    </view>
+  </block>
+</view>

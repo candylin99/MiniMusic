@@ -1,0 +1,9 @@
+
+<view class="custom flex_center {{isshowbg ? '':'nobg'}}" style="padding-top:{{statusBarHeight}}px">
+  <view class="goto" wx:if="{{ishidden == false}}" catchtap="goback">
+    <image class="gobackimg" wx:if="{{isshowbg}}" src="{{gobackurl}}"></image>
+    <image class="gobackimg" wx:else src="{{gobawhiteckurl}}"></image>
+  </view>
+  <text class="{{ishidden == false ? 'titleText':'titleTextleft'}}" >{{ title }}</text>
+</view>
+<view class="empty_custom" style="padding-top:{{statusBarHeight}}px"></view>
