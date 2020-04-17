@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "tab": "../../components/headtab/headtab"
+    "tab": "../../components/headtab/headtab",
+    "list": "../../components/musiclist/musiclist"
   }
 }

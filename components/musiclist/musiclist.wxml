@@ -1,0 +1,20 @@
+ <!-- 歌单模块 -->
+    <view class="music_list_container">
+      <view class="{{toggleMore?'':'music_list_block'}}">
+        <view class="music_list_banner">
+          <block wx:for="{{playList}}" wx:key="idx">
+            <view class="list_banner">
+              <view class="banner_image">
+                <image src="{{item.coverImgUrl}}" style="height:100%;width:100%;border-radius: 20rpx;"></image>
+              </view>
+              <view class="banner_text">{{item.name}}
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <!-- 加载更多 -->
+      <view class="toggle_nomore" bindtap="toggleMore" hidden="{{toggleMore}}">
+        <buttom style="padding: 20rpx 320rpx;">更多</buttom>
+      </view>
+    </view>

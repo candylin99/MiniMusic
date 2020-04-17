@@ -27,7 +27,7 @@
 .tab_text {
   color: #303639;
   font-weight: 700;
-  border-bottom: 6rpx solid #303639;
+  border-bottom: 6rpx solid #3ABA7D;
   font-size: 40rpx;
   padding: 15rpx 0;
 }

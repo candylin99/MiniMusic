@@ -1,64 +1,3 @@
-
-page{
-  padding: 20rpx;
-}
-/* 轮播图 */
-.swpier{
-  height: 270rpx!important;
-  border-radius: 20rpx;
-}
-
-.swpier_item{
-  border-radius: 10rpx;
-}
-.swpier_item image{
-  width: 100%;
-  height: 328rpx;
-  border-radius: 20rpx;
-}
-/* 乐库导航 */
-.nav{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  padding: 23rpx 0;
-
-}
-/* 左边的栏位 */
-.nav_item_left{
-  display: flex;
-  width: 25%;
-  flex-direction: column;
-}
-.nav_item_left .black{
-  background-color: #3ABA7D;
-  border-radius: 30rpx;
-  height: 30rpx;
-  margin:10rpx 0;
-  width: 100%;
-  color: #fff;
-  line-height: 12rpx;
-  text-align: center;
-  font-weight: 700;
-}
-.nav_item_left .love{
-  background-color: #fff;
-  border-radius: 30rpx;
-  height: 270rpx;
-  /* margin:10rpx 10rpx 0 rpx 0rpx; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-.love_img{
-  height: 150rpx;
-  width: 150rpx;
-  background-color: #fff;
-  border-radius: 30rpx;
-  margin: 10rpx;
-}
 /* 右栏 */
 .nav_right{
   width: 75%;
@@ -147,4 +86,33 @@ page{
   background-color: #fff;
   border-radius: 20rpx;
   height: 214rpx;
+}
+.music_list_block{
+  display: block;
+  height: 942rpx;
+  overflow: hidden;
+}
+.music_list_banner{
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+.banner_text{
+  overflow: hidden;      
+  font-size: 30rpx;
+  text-overflow: ellipsis;
+  display: -webkit-box; /* 将对象作为弹性伸缩盒子模型显示 */      
+  -webkit-line-clamp: 1; /* 控制最多显示几行 */      
+  -webkit-box-orient: vertical; /* 设置或检索伸缩盒对象的子元素的排列方式 */ 
+  height: 47rpx;
+}
+/* 加载更多 */
+.toggle_nomore{
+  display: flex;
+  justify-content: center;
+  color: #ccc;
+  font-size: 32rpx;
+}
+.toggle_more{
+  
 }

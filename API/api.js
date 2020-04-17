@@ -102,6 +102,18 @@ module.exports ={
   },
   getSubcount:(data)=>{
     return request('/user/subcount',data) // 获取用户信息 , 歌单，收藏，mv, dj 数量
+  },
+  getPlaylist:(data)=>{
+    return request('/user/playlist',data) // 获取用户歌单
+  },
+  getLikeList:(data)=>{
+    return request('/likelist',data) // 获取用户喜欢的音乐列表
+  },
+  getSongDetail:(data)=>{
+    return request('/song/detail',data) // 获取用户喜欢的音乐列表 需要传音乐的ids
+  },
+  getPersonalFM:(data)=>{
+    return request('/personal_fm',data) // 获取用户的FM
   }
   
 }

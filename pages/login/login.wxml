@@ -1,0 +1,9 @@
+<!--pages/login/login.wxml-->
+<view class="bank" style="padding-top:{{statusBarHeight}}px;"></view>
+<view class="login_container" hidden="{{loginstatus}}">
+  <form bindsubmit="submitLoginForm">
+    <input placeholder="请输入手机号" name="phone" value="" type="text" class="login_common login_username {{input1color?'login_color':''}}" focus="true" bindtap="changeColor1"></input>
+    <input placeholder="请输入密码" name="password" value="" type="password" class="login_common login_password {{input2color?'login_color':''}}" bindtap="changeColor2"></input>
+    <button class="login_button login_common" form-type="submit">登录</button>
+  </form>
+</view>

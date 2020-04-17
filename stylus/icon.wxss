@@ -17,25 +17,31 @@
 
 .icon-diantai:before {
   content: "\e7e5";
+  color: #303639;
 }
 
 .icon-zhiboquyubofang:before {
   content: "\e61f";
+  color: #303639;
 }
 
 .icon-jilu:before {
   content: "\e604";
+  color: #303639;
 }
 
 .icon-diantai1:before {
   content: "\e65e";
+  color: #303639;
 }
 
 .icon-faxian-copy:before {
   content: "\e504";
+  color: #303639;
 }
 
 .icon-zhibo:before {
   content: "\e643";
+  color: #303639;
 }
 

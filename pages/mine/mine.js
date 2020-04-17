@@ -9,18 +9,19 @@ Page({
   data: {
     // 轮播图
     swiperList:[], 
+    playList:[],
+    saveList:[],
+    likeOne:'',//这里只取得喜欢的列表的id
+    likeOneMusic:[],// 喜欢音乐中的第一个
     indicatorDots: true,
     indicatorcolor: '#ffffff',
-    indicatoractivecolor: '#303639',
+    indicatoractivecolor: '#3ABA7D',
     autoplay: true,
     interval: 4500,
     duration: 1700,
     circular: true,
-    // 乐库导航
+    // 乐库导航 因为要做异形的 first-child之类的用不了所以没用
     musicNav:[{
-      icon:'icon-riqi',
-      title:'喜欢'
-    },{
       icon:'icon-jilu',
       title:'记录'
     },{
@@ -37,22 +38,18 @@ Page({
       title:'发现'
     },],
     personalizedList:[], // 推荐歌单列表
-    input1color:true,
-    input2color:false,
-
-    profile:[], // 手机号密码登录
-    token:'',//登录的token
-    account:[],// 里面有用户的id，以后没啥用就去掉
-    loginstatus:'',
+    
+    toggleActive:true,
   },
   /**
    * 生命周期函数--监听页面加载
    */
 
   onLoad: function (options) {
-    this.getLoginStatus();
     this.getSwiperList();
-
+    this.getPlayList();
+    this.getLikeList();
+    this.getPersonalFM();
     // this.getPersonalizedList();
     // this.getLoginByCellPhone();
     // this.getLogout();
@@ -89,47 +86,6 @@ Page({
     })
   },
   /**
-   * 手机号密码登录
-   * 必选 phone：手机号码 password: 密码
-   */
-  getLoginByCellPhone(phone,password){
-    var that = this
-    wx.request({
-      url: 'http://neteasecloudmusicapi.zhaoboy.com/login/cellphone',
-      data: {
-        phone:phone,
-        password:password
-      },
-      method:'get',
-      header:{
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      success(res) {
-      if(res.data.code === 200){
-        console.log('111')
-        wx.setStorageSync("sessionid", res.header["set-cookie"]) // 存储本地
-          that.getLoginStatus()
-      }
-    }
-    })
-  },
-  // 获取用户的登录状态，更新loginstatus
-  getLoginStatus(){
-    API.getLoginStatus().then(res => {
-      if(res.code === 200){
-        app.globalData.loginstatus = res.profile.userId;
-        this.setData({
-          loginstatus : res.profile.userId,
-        })
-      } else if(res.code=== 301){
-        app.globalData.loginstatus = '';
-        this.setData({
-          loginstatus : ""
-        })
-      }
-    })
-  },
-  /**
    * 退出
    */
   getLogout(){
@@ -150,6 +106,84 @@ Page({
       if(res.code == 200){
         console.log(res);
       }
+    })
+  },
+  /**
+   * 获取用户歌单
+   */
+  getPlayList(){
+    API.getPlaylist({
+      uid:app.globalData.loginstatus
+    }).then(res =>{
+      if(res.code === 200){
+        console.log(res)
+        let userId =app.globalData.loginstatus,playList=[],saveList=[];
+        res.playlist.forEach(item=>{
+          if(item.userId === userId){
+            playList.push(item)
+          }else{
+            saveList.push(item)
+          }
+        })
+        console.log(playList)
+        console.log(saveList)
+        this.setData({
+          playList:playList,
+          saveList:saveList
+        })
+      }
+    })
+  },
+   /**
+   * 获取用户喜欢的歌曲的第一个id
+   */
+  getLikeList(){
+    API.getLikeList({
+      uid:app.globalData.loginstatus
+    }).then(res =>{
+      if(res.code === 200){
+        console.log(res)
+        this.setData({
+          likeOne:res.ids[0]
+        })
+        this.getSongDetail()
+      }
+    })
+  },
+  /**
+   * 根据音乐ids获取音乐详情
+   */
+  getSongDetail(){
+    API.getSongDetail({
+      ids:this.data.likeOne
+    }).then(res=>{
+      if(res.code === 200){
+      this.setData({
+        likeOneMusic:res.songs
+      })
+    }
+    })
+  },
+  /**
+   * 根据音乐ids获取音乐详情
+   */
+  getPersonalFM(){
+    API.getPersonalFM({
+    }).then(res=>{
+      if(res.code === 200){
+      console.log(res)
+    }
+    })
+  },
+  // 显示更多歌单
+  toggleMore(){
+    this.setData({
+      toggleMore:!this.data.toggleMore
+    })
+  },
+  changeList(){
+    this.setData({
+      toggleActive:!this.data.toggleActive
     })
   },
   /**
